@@ -9,6 +9,7 @@ services:
       MYSQL_PORT: 3306
       MYSQL_USER: root
       MYSQL_PASSWORD: password
+      MYSQL_DATABASE: db
       REDIS_URL: redis://redis:6379
     volumes:
       - .:/rails_app
@@ -33,7 +34,7 @@ services:
     #    Appleシリコン搭載Macで構築する場合は下記のコメントアウトを解除する
     #    platform: linux/amd64
     ports:
-      - "6379:6379"
+      - "16379:6379"
     volumes:
       - redis-data:/data
 
@@ -41,11 +42,12 @@ services:
     image: mysql:5.7
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     #    Appleシリコン搭載Macで構築する場合は下記のコメントアウトを解除する
-    #    platform: linux/amd64
+    platform: linux/amd64
     ports:
       - ${MYSQL_PORT-53306}:3306
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
     healthcheck:
       test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
       timeout: 20s

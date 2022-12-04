@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-PROJECT_NAME='nid'
+PROJECT_NAME='presto'
 
 # docker-compose ユーティリティコマンドにプロジェクト名を設定しておく。
 alias docker-compose="docker-compose -p ${PROJECT_NAME}"
@@ -8,7 +8,7 @@ alias docker-compose="docker-compose -p ${PROJECT_NAME}"
 alias up="docker-compose up"
 
 # dockerを停止（作成したvolumeも削除される）
-alias down="docker-compose down"	
+alias down="docker-compose down"
 
 # stopしたvolumeを起動する。
 alias start="docker-compose start"
@@ -26,16 +26,16 @@ alias n-build="docker-compose build --no-cache"
 alias run="docker-compose run --rm app"
 
 # app imageを起動しbundleコマンドを実行（引数に指定されたコマンドをライブラリを実行する）
-alias bundle="docker-compose run --rm app bundle"	
+alias bundle="docker-compose run --rm app bundle"
 
 # app imageを起動しrspecを実行（bundle execをつけないとGemfile.lockに基つかずにgemのバージョンが決定されてしまうためつける）
-alias rspec="docker-compose run -e RAILS_ENV=test --rm app bundle exec rspec"	
+alias rspec="docker-compose run -e RAILS_ENV=test --rm app bundle exec rspec"
 
 # app imageを起動しrubocopを実行（bundle execをつけないとGemfile.lockに基つかずにgemのバージョンが決定されてしまうためつける）
-alias rubocop="docker-compose run --rm app bundle exec rubocop"	
+alias rubocop="docker-compose run --rm app bundle exec rubocop"
 
 # app imageを起動しrailsを実行（bundle execをつけないとGemfile.lockに基つかずにgemのバージョンが決定されてしまうためつける）
-alias rails="docker-compose run --rm app bundle exec rails"	
+alias rails="docker-compose run --rm app bundle exec rails"
 
 # buildしたイメージを立ち上げイメージの中に入る
 alias i-in="docker-compose run --rm -it app /bin/bash"
@@ -43,4 +43,4 @@ alias i-in="docker-compose run --rm -it app /bin/bash"
 # 起動しているコンテナの中に入る
 alias c-in="docker-compose exec -it app /bin/bash"
 
-alias swagger="docker-compose up openapi-ui openapi-editor openapi-mock"	
+alias swagger="docker-compose up openapi-ui openapi-editor openapi-mock"

@@ -5,6 +5,8 @@ ENV LANG C.UTF-8
 ENV APP_HOME /rails_app
 WORKDIR $APP_HOME
 
+COPY Gemfile Gemfile.lock /rails_app
+
 RUN apt update -qqy \
     && apt install -qqy --no-install-recommends make gcc git curl g++ default-libmysqlclient-dev xz-utils\
     && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
