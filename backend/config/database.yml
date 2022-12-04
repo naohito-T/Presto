@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  host: <%= ENV['MYSQL_HOST'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: presto_development
+
+test:
+  <<: *default
+  database: presto_test
+
+production:
+  <<: *default
+  database: presto_production
+  username: backend
+  password: <%= ENV["BACKEND_DATABASE_PASSWORD"] %>
