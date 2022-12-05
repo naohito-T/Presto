@@ -1,0 +1,5 @@
+node_modules/
+vender
+.gitignore
+.ruby-version
+docker-compose.yml

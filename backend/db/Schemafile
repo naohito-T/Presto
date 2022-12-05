@@ -1,0 +1,11 @@
+# Schemafile
+
+# require 'schemas/system_admins.schema'
+# require 'schemas/system_admins/google_auth_credentials.schema'
+
+# require 'schemas/livers.schema'
+# require 'schemas/youtube_channels.schema'
+# require 'schemas/youtube_events.schema'
+# require 'schemas/users.schema'
+# require 'schemas/youtube_events_livers.schema'
+# require 'schemas/liver_bookmarks.schema'

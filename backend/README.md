@@ -14,6 +14,7 @@ $ bundle install
 $ bundle exec thor credentials:decrypt
 # DB作成, migration, seedデータ追加
 $ rails ridgepole:initialize_db
+
 $ rails db:seed_fu
 # rails app だけ立ち上げるとき
 $ app
