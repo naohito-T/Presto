@@ -1,0 +1,8 @@
+# Schema files
+
+# require 'schemas/carts.schema'
+# require 'schemas/product_bookmarks.schema'
+# require 'schemas/products.schema'
+# require 'schemas/user_orders.schema'
+# require 'schemas/users.schema'
+

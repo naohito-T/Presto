@@ -1,0 +1,7 @@
+# user（1対）product（多）
+create_table :products_bookmarks, id: { type: :string, limit: 26 }, force: :cascade, charset: 'utf8mb4', comment: 'お気に入り商品テーブル' do |t|
+  t.references :user, null: false, type: :string
+  t.references :liver, null: false, type: :string
+  t.datetime :created_at, precision: 6, comment: "お気に入り作成時間"
+  t.datetime :updated_at, precision: 6, comment: "お気に入り更新時間（お気に入りを更新する時ある？）"
+end

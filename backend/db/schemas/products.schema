@@ -1,0 +1,16 @@
+# encoding: utf-8
+
+# 商品の公開ステータスは日付で管理
+# precisionオプションは小数点第何位まで計測するかどうかを設定するオプション。
+# see https://techtechmedia.com/precision-rails/
+create_table :products, id: { type: :string, charset: 'utf8mb4', comment: "連番は避けたULID" do |t|
+    t.datetime :created_at, precision: 6, comment: "作成時間"
+    t.datetime :updated_at, precision: 6, comment: "更新時間"
+    t.datetime :public_at, precision: 6, comment: "商品公開日時（公開していない場合は非公開と同義 ※UIには出さない）"
+    t.datetime :deleted_at, precision: 6, comment: "商品削除日時（公開状態だが削除されて時間 ※）"
+    t.integer "quantity", null: false, comment: "商品の個数"
+    t.string :name, comment: '商品名'
+    t.string :thumbnail_url, comment: '商品のサムネイル'
+    t.integer :pickup, null: false, default 0, comment: 'pickup商品（pickup: 1, not pickup: 0）'
+    t.bigint :view_count, null: false, default: 0, comment: '商品の総閲覧数'
+end

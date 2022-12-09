@@ -1,0 +1,86 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.1
+  TargetRailsVersion: 7.0
+  SuggestExtensions: false
+  NewCops: enable
+  # パトロールの必要がない判断基準としては、Railsで自動生成されたファイル
+  # 加えて、人間が手を加えないファイル
+  Exclude:
+    - 'app/channels/**/*'
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'docker/**/*'
+    - "log/**/*"
+    - 'tmp/**/*'
+    - "public/**/*"
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+
+# Gemfileの順番を無効化
+Bundler/OrderedGems:
+  Enabled: false
+
+# --------------------
+# Core
+# --------------------
+
+# Rails用に最適化されたモード
+Rails:
+  Enabled: true
+
+# putsなどをコード内で使用して良いファイルをExcludeする。
+Rails/Output:
+  Exclude:
+    - db/seeds.rb
+
+# --------------------
+# Metrics
+# --------------------
+
+# class 許容最大行数 400（default 100とか？）
+Metrics/ClassLength:
+  Max: 400
+
+# method 許容最大行数
+Metrics/MethodLength:
+  Max: 100
+
+# Block 許容最大行数（RSpecは1つのブロックあたり行数が多くなるため外す）
+Metrics/BlockLength:
+  Max: 60
+  Exclude:
+    - spec/**/*.rb
+
+# ネストが深すぎないかチェック（if文もチェック）
+Metrics/BlockNesting:
+  Max: 3
+
+# Assignment: 変数への代入
+# Branch: メソッド呼び出し
+# Condition: 条件文
+# 上記項目をRubocopが計算して基準値を超えると警告を出す（上記頭文字をとって'Abc'）
+Metrics/AbcSize:
+  Max: 50
+
+# メソッドの中身が複雑になっていないか、Rubocopが計算して基準値を超えると警告を出す
+Metrics/PerceivedComplexity:
+  Max: 8
+
+# 循環的複雑度が高すぎないかをチェック（ifやforなどを1メソッド内で使いすぎている）
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# --------------------
+# Layout, style
+# --------------------
+
+# 1行あたりの文字数をチェックする
+Layout/LineLength:
+  Max: 130
+
+# 空メソッドの場合に、1行のスタイルにしない　NG例：def style1; end
+Style/EmptyMethod:
+  EnforcedStyle: expanded
