@@ -36,5 +36,30 @@ $ bin/rails server
 ```
 
 ## WebSocket
+
 WebSocketを使って何かしたい
 NIDに対して何か
+
+## Comment
+
+コメントについてはYARDに従っている
+
+## Lint
+[リファレンス](https://github.com/rubocop/rubocop/blob/master/config/default.yml)
+[参考URL](https://qiita.com/List202/items/38b7fdfb5cc8d85d66e4)
+
+Rubocopを使用。
+コードに対して実行される様々なチェックを`cops`と呼ぶ。
+`cops`は特定の違反を検出する責任があり、その違反部門ごとに`cops`はグループ化されている。
+
+## Seed
+
+Railsに元々ある仕組み`rake db:seed`は実行するたびに同じデータが登録されてしまう。
+そのため`seed-fu`を当プロジェクトでは使用している。
+seed-fuは、すでに存在しているが変更したいレコードだけ更新したり、ファイル単位で実行できたり、簡単に書けるようなシンタックスシュガーがあったりと便利
+
+## Logger
+[リファレンス](https://railsguides.jp/debugging_rails_applications.html)
+
+Railsに元々ある仕組みを採用。
+tagなどを付与できるため検索DXを向上させるためタグを付与する。

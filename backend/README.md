@@ -3,30 +3,32 @@
 立ち上げまでの流れ
 
 ```sh
-$ . ./env.sh
-# M1チップ搭載のMac上で環境構築する場合はdocker-compose.ymlに記載されている'platform: linux/amd64'のコメントアウトを外してください
-# docker-compose build の alias
+$ . ./bin/alias
+# image build
 $ build
+# vendor install
 $ bundle install
+
 # local で使う API キーの類を復号する
 # LastPass -> Shared-Parrot -> Rails development.secret.encrypted.yml からパスワードをコピーする
 # 以下のコマンドを実行するとパスワードを聞かれるので上記の物を入力します。分からない人は他のエンジニアに聞いてください
 $ bundle exec thor credentials:decrypt
+
 # DB作成, migration, seedデータ追加
 $ rails ridgepole:initialize_db
 
 $ rails db:seed_fu
 # rails app だけ立ち上げるとき
 $ app
-# CSS, JS
-$ yarn install
-# bin/dev でまとめて起動できるけど docker の外でやった方が速い
-$ yarn build --watch
-$ yarn build:css --watch
-# Sidekiq のコンテナだけ立ち上げるとき
-$ worker
-# 全部
-$ up
+## CSS, JS
+#$ yarn install
+## bin/dev でまとめて起動できるけど docker の外でやった方が速い
+#$ yarn build --watch
+#$ yarn build:css --watch
+## Sidekiq のコンテナだけ立ち上げるとき
+#$ worker
+## 全部
+#$ up
 ```
 
 ## DBの構造を変更する場合

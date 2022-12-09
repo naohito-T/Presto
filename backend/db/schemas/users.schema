@@ -1,6 +1,8 @@
-create_table "articles", force: :cascade do |t|
-  t.string   "title"
-  t.text     "text"
-  t.datetime "created_at"
-  t.datetime "updated_at"
+# encoding: utf-8
+
+create_table :users, id: { type: :string, comment: "Nidで使用したidと同じ" }, force: :cascade, charset: 'utf8mb4', comment: 'ポータル利用ユーザ' do |t|
+  t.integer "status", default: 1, null: false, comment: "ユーザーの状態。 (1:active, 2:deleted)"
+  t.datetime "deleted_at", precision: nil, comment: "ユーザーが退会した日時。空の場合、退会していない状態。"
+  t.timestamps null: false
 end
+

@@ -19,9 +19,3 @@ RUN apt update -qqy \
     && gem install bundler
 
 COPY . $APP_HOME
-
-# # Expose assets for web container
-# VOLUME $APP_HOME/public/assets
-
-# EXPOSE 3000
-# CMD bundle exec rails server -b 0.0.0.0
